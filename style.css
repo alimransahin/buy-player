@@ -1,0 +1,16 @@
+/* google font */
+@import url('https://fonts.googleapis.com/css2?family=Kalam&family=Poppins:wght@400;500;700;900&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+/* header */
+.heading{
+    font-family: 'Kalam', cursive;
+}
+.header-bg{
+    background-image:url(images/player-1.png), url(images/football.png);
+    background-position: left bottom, right top;
+    background-size: 30%, 15%;
+}
