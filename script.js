@@ -32,8 +32,18 @@ document.getElementById('player-budget').addEventListener('click', function(){
         setElementTextById('total-player-budget',totalPlayerBudget)
     }
     else{
-        alert("not");
+        alert("Please Insert Valid Number");
     }
 })
 
-document.getElementById('calculate')
+document.getElementById('calculate').addEventListener('click',function(){
+    const manager=getElementValueById('manager');
+    const coach=getElementValueById('coach');
+    if (Number.isInteger(manager) && manager > 0 && Number.isInteger(coach) && coach > 0) {
+        const totalCost = manager + coach;
+        setElementTextById('total', totalCost);
+    }
+    else {
+        alert("Please Insert Valid Number");
+    }
+})
