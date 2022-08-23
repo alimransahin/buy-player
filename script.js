@@ -20,6 +20,12 @@ function getElementValueById(elementId){
     const elementValue=parseInt(elementValueString);
     return elementValue;
 }
+function getElementTextById(elementId) {
+    const element = document.getElementById(elementId);
+    const elementValueString = element.innerText;
+    const elementValue = parseInt(elementValueString);
+    return elementValue;
+}
 function setElementTextById(elementId, value){
     const element=document.getElementById(elementId);
     element.innerText=value;
@@ -27,23 +33,24 @@ function setElementTextById(elementId, value){
 document.getElementById('player-budget').addEventListener('click', function(){
     const perPlayer=getElementValueById('per-player');
     const totalPlayerNo = playerList.childElementCount;
-    if(Number.isInteger(perPlayer)&&perPlayer>0){
+    if(Number.isInteger(perPlayer)&&perPlayer>=0){
         const totalPlayerBudget=perPlayer*totalPlayerNo;
         setElementTextById('total-player-budget',totalPlayerBudget)
     }
     else{
-        alert("Please Insert Valid Number");
+        alert("Please Insert Valid Per Player Budget");
     }
 })
 
 document.getElementById('calculate').addEventListener('click',function(){
+    const playerBudget = getElementTextById('total-player-budget');
     const manager=getElementValueById('manager');
     const coach=getElementValueById('coach');
-    if (Number.isInteger(manager) && manager > 0 && Number.isInteger(coach) && coach > 0) {
-        const totalCost = manager + coach;
+    if (Number.isInteger(manager) && manager >= 0 && Number.isInteger(coach) && coach >= 0) {
+        const totalCost =playerBudget + manager + coach;
         setElementTextById('total', totalCost);
     }
     else {
-        alert("Please Insert Valid Number");
+        alert("Please Insert Valid Manager and Coach Budget");
     }
 })
